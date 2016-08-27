@@ -1,14 +1,18 @@
 to run that MapReduce task:
 
 > $ su hadoop
+
 > $ cd <MapReduce project>/target/
+
 > $ export HADOOP_CLASSPATH=$(pwd)/MapReduce-1.0.jar
+
 > $ hadoop com.almaz.mapreduce.AmountByCity /user/hdfs/hh_vacancy/data/hh_ru_vacancy_8000000_8.txt /user/hdfs/hh_vacancy/results/amountByCity
 
 Explanation:
 
 If we set key value in 'map()' in that way:
-> $ context.write(new Text(fields[3]), new IntWritable(1));
+
+> context.write(new Text(fields[3]), new IntWritable(1));
 
 the output of: 
 
@@ -78,22 +82,30 @@ return as:
 
 as we need just city name we do that:
 
-> $ context.write(new Text(fields[3].replaceAll(",.*","")), new IntWritable(1));
+> context.write(new Text(fields[3].replaceAll(",.*","")), new IntWritable(1));
 
 
 How to run that task:
 
 > $ su hadoop
+
 > $ cd <MapReduceProjRootDir>/target
+
 > $ export HADOOP_CLASSPATH=$(pwd)/MapReduce-1.0.jar
+
 > $ hadoop com.almaz.mapreduce.AmountByCity /user/hdfs/hh_vacancy/data/hh_ru_vaca* /user/hdfs/hh_vacancy/results/amountByCity7
+
 > $ su hdfs
+
 > $ hdfs dfs -ls -R /user/hdfs/hh_vacancy/results
+
 > $ hdfs dfs -get /user/hdfs/hh_vacancy/results/amountByCity7/part-r-00000 <yourHomeDir>/hh_vacancy/results/amountByCity7.txt
 
 Resulted file ("AmountByCity7.txt") of that task performed over 25.7 Gb of vacansies can be found here:
 
-> $ https://www.dropbox.com/sh/ysuyj3c8u93vcfn/AADkBmPcNmTWeT3n0N7e8Yzha?dl=0
+> https://www.dropbox.com/sh/ysuyj3c8u93vcfn/AADkBmPcNmTWeT3n0N7e8Yzha?dl=0
+
+
 
 Some sorting and analising of results:
 
@@ -112,6 +124,7 @@ Amount of vacancies in Moscow:
 Sort cities by amount of vacancies:
 
 > $ sort -rn -t $'\t' -k2 -o amountByCitySorted.txt amountByCity7.txt
+
 > $ head -n 15 amountByCitySorted.txt
 
 
