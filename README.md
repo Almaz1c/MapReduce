@@ -8,6 +8,7 @@ to run that MapReduce task:
 
 > $ hadoop com.almaz.mapreduce.AmountByCity /user/hdfs/hh_vacancy/data/hh_ru_vacancy_8000000_8.txt /user/hdfs/hh_vacancy/results/amountByCity
 
+
 Explanation:
 
 If we set key value in 'map()' in that way:
@@ -127,6 +128,13 @@ Sort cities by amount of vacancies:
 
 > $ head -n 15 amountByCitySorted.txt
 
+Another mapReduce tasks:
+
+> $ hadoop com.almaz.mapreduce.AmountByEmployer /user/hdfs/hh_vacancy/data/hh_ru_vaca* /user/hdfs/hh_vacancy/results/amountByEmployer2
+
+some useful scripts to perform another simple analysis can be found in "scripts" folder
+resulted files can be found here:
+https://www.dropbox.com/sh/ysuyj3c8u93vcfn/AADkBmPcNmTWeT3n0N7e8Yzha?dl=0
 
 
 
