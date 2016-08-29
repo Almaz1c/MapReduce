@@ -132,7 +132,8 @@ Another mapReduce tasks:
 
 > $ hadoop com.almaz.mapreduce.AmountByEmployer /user/hdfs/hh_vacancy/data/hh_ru_vaca* /user/hdfs/hh_vacancy/results/amountByEmployer2
 
-some useful scripts to perform another simple analysis can be found in "scripts" folder
+some useful scripts to perform another simple analysis can be found in "scripts" folder.
+
 resulted files can be found here:
 https://www.dropbox.com/sh/ysuyj3c8u93vcfn/AADkBmPcNmTWeT3n0N7e8Yzha?dl=0
 
